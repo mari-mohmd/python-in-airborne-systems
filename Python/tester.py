@@ -9,7 +9,7 @@
  Contact    : mohammad.mari@griffithuni.edu.au
  Created    : 2025
  License    : MIT License (see LICENSE file for details)
- Description: Description: A generic tester. Runs a Python program 5 times,
+ Description: A generic tester. Runs a Python program 5 times,
               reports execution durations and WCET.
  Usage      : python tester.py <<python_program.py>>
 ===============================================================================

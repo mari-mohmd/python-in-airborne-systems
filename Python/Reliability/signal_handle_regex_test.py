@@ -2,7 +2,7 @@
 ===============================================================================
  Project    : Assessing Python’s Suitability for Airborne Safety-Critical
                        Systems under DO-178C Guidelines
- File       : signle_handle_re_test.py
+ File       : signle_handle_regex_test.py
  Author(s)  : Mohammad Mari, Lian Wen
  Affiliation: School of ICT, Griffith University
  Contact    : mohammad.mari@griffithuni.edu.au
@@ -14,7 +14,7 @@
 ===============================================================================
 """
 # This file simulates a long-running regex operation to test KeyboardInterrupt
-# handling on single-threaded execution using binary extension libraries like `re`.
+# handling on single-threaded execution using binary extension libraries `regex`.
 
 
 import signal

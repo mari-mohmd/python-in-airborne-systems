@@ -14,7 +14,7 @@
 ===============================================================================
 """
 # This file simulates a long-running regex operation to test KeyboardInterrupt
-# handling on single-threaded execution using binary extension libraries like `re`.
+# handling on single-threaded execution using binary extension libraries `re`.
 
 
 import signal
