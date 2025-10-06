@@ -18,7 +18,7 @@
 
 import time
 
-ONE_BILLION = 1000000000
+ONE_BILLION = 1_000_000_000
 
 def loop() :
     result = 0

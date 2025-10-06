@@ -10,3 +10,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 pyo3 = "0.20.0"
+
+# Disabling optimizations for benchmark analysis
+[profile.dev]
+opt-level = 0 

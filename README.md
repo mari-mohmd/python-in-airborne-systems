@@ -17,11 +17,9 @@ The experiments focus on Python’s behavior with respect to two main quality at
 ---
 
 ## Overview
-Python is a widely adopted programming language celebrated for its ease of use, dynamic typing, and strong community support. Despite these advantages, Python presents challenges when considered for safety-critical applications, notably those in airborne systems. Concerns arise from performance limitations, limited compile-time checking, and dynamic features that may impact reliability in environments where failures can have severe consequences. Airborne systems, with their stringent safety requirements, provide a context in which these challenges can be critically examined. This study evaluates Python’s alignment with the objectives defined in DO-178C (Software Considerations in Airborne Systems and Equipment Certification). By analyzing Python’s core characteristics
-against these rigorous standards, we highlight potential compliance gaps and practical challenges that may hinder its use in safety-critical contexts.
-In addition, we perform a comparative analysis between Python and Rust—a modern systems programming language noted for its safety guarantees and performance. Rust was selected not as a replacement for established baselines such as Ada, C, and C++, but as a complementary point of comparison illustrating how a newer, safety-oriented compiled language contrasts with Python’s interpreted model. Our findings indicate that Python lacks compile-time error checking, exhibits delayed signal handling,
-and has limited optimization capabilities, which together may affect its performance and reliability. Potential enhancements such as Just-In-Time (JIT) compilation, advanced static analysis, and robust type-checking tools are recommended to mitigate these issues. Overall, our study emphasizes both the
-strengths and limitations of Python and suggests pathways to improve its viability for safety-critical use.
+
+This project evaluates Python’s suitability for safety-critical applications, particularly in the context of DO-178C certification for airborne systems. While Python is widely adopted for its ease of use and flexibility, limitations such as lack of compile-time checks, delayed signal handling, and limited optimization raise concerns for reliability in high-assurance environments.
+We compare Python against Rust, a modern language designed with safety and performance in mind. Rust is not presented as a replacement for traditional safety-critical languages (Ada, C, C++), but as a useful benchmark to highlight how a safety-oriented compiled language contrasts with Python’s interpreted model.
 
 ---
 
@@ -34,6 +32,16 @@ strengths and limitations of Python and suggests pathways to improve its viabili
 │   |   │   ├── bounded_latency_single_thread.py
 │   |   │   ├── bounded_latency_multi_thread.py
 │   |   │   └── bounded_latency_multi_process.py
+|   |   |
+│   |   ├── binary_extension/                   
+│   |   │   ├── compiled_loop.py
+│   |   │   ├── README.md
+│   |   │   └── one_billion_loop
+|   |   |       ├── src/
+|   |   |       |   └── lib.rs
+|   |   |       ├── Cargo.toml
+|   |   |       ├── Cargo.lco
+|   |   |       └── pyproject.toml 
 │   |   │
 |   |   ├── just_in_time_compilation/
 |   |   |   ├── jit.py
@@ -57,13 +65,25 @@ strengths and limitations of Python and suggests pathways to improve its viabili
 |   |       └── tab_error.py    
 |   |
 |   ├── Reliability/
-│   |   ├── signle_handle_re_test.py
-|
+│   |   ├── deferred_error_detection.py
+|   |   ├── signal_handle_re_test.py
+|   |   ├── signal_handle_regex_test.py
+|   |   └── signal_handle_tester.py 
+|   |
+│   └── tester.py 
+│
 ├── Rust/
-│   └── performance/
-│       └── bounded_latency/                   
-│           ├── bounded_latency_single_thread.rs
-│           └── bounded_latency_multi_thread.rs
+│   ├── performance/
+│   |   └── bounded_latency/                   
+│   |       ├── bounded_latency_single_thread.rs
+│   |       └── bounded_latency_multi_thread.rs
+│   ├── Reliability/
+│   |    └── signal_handling                   
+│   |        ├── src/main.rs
+│   |        ├── src/signal_handle_tester.py
+│   |        └── Cargo.toml
+│   └── one-billion-loop.rs
+|
 ├── README.md                                 
 ├── LICENSE                                   
 └── requirements.txt 
@@ -80,14 +100,43 @@ The experiments in this repository were conducted under the following environmen
 - **Notes:** Multi-core CPU allows comparison between single-threaded, multi-threaded, and multiprocessing experiments. Timing results may vary on different hardware.
 
 ### Python Experiments
-- **Python Version:** 3.12 
+- **Python Version:** 3.9.0 
 - **Key Libraries:**  
   - `multiprocessing` (standard library)  
   - `threading` (standard library)  
   - `numba` for JIT compilation experiments  
+  - `regex` used as an alternative to `re` in our experiments.
 
 ### Rust Experiments
-- **Rust Version:** 1.77 (`rustc --version`)  
+- **Rust Version:** 1.77 (`rustc --version`) 
+- **Key Libraries:**  
+  - `regex`  
+  - `ctrlc` 
 - **Notes:** Rust experiments can be compiled with no optimization for raw timing analysis:
 ```bash
 rustc -C opt-level=0 <filename>.rs
+```
+
+## Requirements
+
+This project requires Python 3.9.0
+All dependencies are listed in the `requirements.txt` file.
+
+To install them, run:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+Each experiment is self-contained within its own directory.
+You may find a README.md file inside a directory that explains how to run the corresponding experiment.
+If a directory does not contain a README, check the top of the experiment script — each file includes a header with usage instructions and details on how to execute it.
+
+## License
+
+MIT License
+
+## Authors
+* Mohammad Mari - <mohammad.mari@griffithuni.edu.au>
+* Larry Lain - <l.wen@griffith.edu.au>

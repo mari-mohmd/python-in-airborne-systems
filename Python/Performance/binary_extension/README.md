@@ -10,7 +10,7 @@ The module is written in Rust, compiled into a Python wheel, and can be imported
 Before building, ensure the following tools are installed:
 
 * **Rust toolchain** (via [rustup](https://rustup.rs/))
-* **Python 3.8+** (with `pip`)
+* **Python 3.12+** (with `pip`)
 * **Maturin** (`pip install maturin`)
 
 ---

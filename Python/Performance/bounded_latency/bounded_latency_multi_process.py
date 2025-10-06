@@ -34,7 +34,7 @@ def process(sensor_id, start_time, expected_finish_time_sec):
 
     some_num = 0
 
-    for i in range(10000000):
+    for i in range(10_000_000):
         some_num += i
     end_time = time.time()
     actual_time = end_time - start_time

@@ -24,7 +24,7 @@ use pyo3::prelude::*;
 #[pyfunction]
 fn compiled_function() -> PyResult<String> {
     let mut x: usize = 0;
-    for i in 0..1000000000 {
+    for i in 0..1_000_000_000 {
         x += 1;
     }
     Ok((x).to_string())

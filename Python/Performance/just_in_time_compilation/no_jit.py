@@ -19,14 +19,15 @@
 
 import time
 
-ONE_BILLION = 1000000000
+LOOP_COUNT = 1_000_000_000 # one billion
 
 start_time = time.time()
 
 def compiled_function():
     x = 0
-    for i in range(ONE_BILLION):
+    for i in range(LOOP_COUNT):
         x+=i
     return x
 
 print("Finished x is:", compiled_function(), "; Duration:", time.time() - start_time, "seconds")
+

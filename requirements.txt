@@ -1,2 +1,4 @@
 numba==0.60.0
 maturin==1.7.4
+regex==2025.9.18
+memory-profiler==0.61.0

@@ -20,14 +20,14 @@
 import time
 from numba import jit
 
-ONE_BILLION = 1000000000
+LOOP_COUNT = 1_000_000_000 # one billion
 
 start_time = time.time()
 
-@jit
+@jit(_dbg_optnone=True)
 def compiled_function():
     x = 0
-    for i in range(ONE_BILLION):
+    for i in range(LOOP_COUNT):
         x+=i
     return x
 
