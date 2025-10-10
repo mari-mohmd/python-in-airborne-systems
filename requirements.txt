@@ -1,4 +1,7 @@
 numba==0.60.0
 maturin==1.7.4
+cython==3.1.4
+pyoxidizer==0.24.0
 regex==2025.9.18
 memory-profiler==0.61.0
+mypy==1.11.2

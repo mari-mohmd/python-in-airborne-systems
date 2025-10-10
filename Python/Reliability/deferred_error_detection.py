@@ -10,12 +10,14 @@
  Created    : 2025
  License    : MIT License (see LICENSE file for details)
  Description: Core experiment code demonstrating undetected error in else-branch
- Usage      : python deferred_error_detection.py
+ Usage      : 1. python deferred_error_detection.py
+              2. mypy deferred_error_detection.py
 ===============================================================================
 """
 
 # This file illustrates a NameError occurs in the else-branch, but because the
 # branch is never executed, the program terminates without issue.
+# Use mypy to detect this issue
 
 if True:
     print("This line is being executed")

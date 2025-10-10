@@ -10,6 +10,8 @@
  License    : MIT License (see LICENSE file for details)
  Description: Core experiment code to demonstrate bounded_latency and GIL impact
  Usage      : python bounded_latency_multi_thread.py
+              for profiling: 1. mprof run python bounded_latency_multi_thread.py
+                             2. mprof plot   
 ===============================================================================
 """
 

@@ -1,0 +1,6 @@
+[package]
+name = "one_billion_loop"
+
+[[python_binary]]
+name = "one_billion_loop_exe"
+main_module = "tester"

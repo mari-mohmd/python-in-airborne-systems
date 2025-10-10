@@ -10,6 +10,8 @@
  License    : MIT License (see LICENSE file for details)
  Description: Core experiment code demonstrating bounded latency using multiprocessing.
  Usage      : python bounded_latency_multi_process.py
+              for profiling: 1. mprof run python bounded_latency_multi_process.py
+                             2. mprof plot   
 ===============================================================================
 """
 
